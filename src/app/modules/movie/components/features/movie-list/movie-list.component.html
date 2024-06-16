@@ -1,0 +1,7 @@
+<button type="button"(click)="DisplayAllMovies()">ALL</button>
+<button type="button" (click)="DisplayNotWatchedMovies()">TO SEE</button>
+<button type="button" (click)="DisplayWatchedMovies()">ALREADY SEEN</button>
+<button type="button" (click)="redirect()">ADD MOVIE</button>
+<ng-container *ngIf="movieList$| async as movieList">
+    <div *ngFor="let movie of movieList">{{movie.name}}</div>
+</ng-container>
