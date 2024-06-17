@@ -50,6 +50,16 @@
           width: 100%;
         }
       }
+      .director-link {
+        span {
+          color: grey;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+    .pitch {
+      margin-bottom: 10px;
     }
     .movie-comment-container {
       margin-top: 2rem;
@@ -58,13 +68,22 @@
       display: flex;
       flex-direction: column;
       border: none;
-      padding-top: 20px;
+      padding-top: 10px;
+
+      textarea {
+        padding: 0.4rem;
+        border: #c29b0f solid 1px;
+        background-color: #0b202f;
+        color: #fff;
+        font-family: alice;
+        border-radius: 3px;
+      }
 
       textarea {
         resize: none;
       }
     }
     .submit-btn {
-      margin-top: 5px;
+      margin-top: 7px;
     }
   }

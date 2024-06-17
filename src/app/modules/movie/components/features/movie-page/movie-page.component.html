@@ -9,7 +9,8 @@
         <p>Titre original : {{ movie.originalName }}</p>
         <p>Année de sortie : {{ movie.releaseYear }}</p>
         <p class="director-link" (click)="goToDirectorPage(movie.director.id)">
-          Réalisé par : {{ movie.director.firstname }} {{ movie.director.lastname }}
+          Réalisé par : <span>{{ movie.director.firstname }}
+            {{ movie.director.lastname }}</span>
         </p>
         <p>Durée : {{ movie.length }}</p>
       </div>
@@ -23,11 +24,13 @@
       }
     </div>
     @if(movie.comment){
-      <div class="movie-comment-container">
-        <h2>Avis sur le film</h2>
-        <p>{{ movie.comment }}</p>
-      </div>
-    } @else { @if (isCommentAreaVisible) {
+    <div class="movie-comment-container">
+      <h2>Avis sur le film</h2>
+      <p>{{ movie.comment }}</p>
+    </div>
+    } @else {
+    <button type="button" (click)="showCommentArea()">Écrire un avis</button>
+    @if (isCommentAreaVisible) {
     <form (ngSubmit)="sendComment()">
       <fieldset>
         <label for="comment">Commentaire</label>
@@ -41,10 +44,8 @@
           [(ngModel)]="personalComment.comment"
         ></textarea>
       </fieldset>
-        <button class="submit-btn" type="submit">Envoyer</button>
+      <button class="submit-btn" type="submit">Envoyer</button>
     </form>
-    }
-    <button type="button" (click)="showCommentArea()">Écrire un avis</button>
-    }
+    } }
   </article>
 </ng-container>
