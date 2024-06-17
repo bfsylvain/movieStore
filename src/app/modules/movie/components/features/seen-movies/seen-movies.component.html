@@ -1,1 +1,3 @@
-<p>seen-movies works!</p>
+<ng-container *ngIf="movieList$| async as movieList">
+    <div *ngFor="let movie of movieList">{{movie.name}}</div>
+</ng-container>
