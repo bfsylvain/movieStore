@@ -1,3 +1,8 @@
-<ng-container *ngIf="movieList$| async as movieList">
-    <div *ngFor="let movie of movieList">{{movie.name}}</div>
-</ng-container>
+<ng-container *ngIf="movieList$ | async as movieList">
+    <article *ngFor="let movie of movieList" (click)="goToMoviePage(movie.id)">
+      <img [src]="movie.poster" alt="poster" />
+      <p>{{movie.name}}</p>
+      <button type="button" (click)="deleteMovie(movie.id)">Supprimer</button>
+    </article>
+  </ng-container>
+  
