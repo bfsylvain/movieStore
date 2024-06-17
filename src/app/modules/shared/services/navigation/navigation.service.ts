@@ -15,6 +15,14 @@ export class NavigationService {
     { name: 'Réalisateurs', url: 'directors' },
   ];
 
+  MoviePageNavigationList: PageNavigation[] = [
+    { name: 'TOUS', url: 'all' },
+    { name: 'DEJA VUS', url: 'seen' },
+    { name: 'A VOIR', url: 'to-watch' },
+    { name: 'AJOUTER', url: 'add-movie' },
+
+  ]
+
   constructor() { }
 
   setSidebarVisible(): void {
@@ -28,5 +36,10 @@ export class NavigationService {
   setPageNavigationList(): PageNavigation[] {
     return this.PageNavigationList;
   }
+
+  setMoviePageNavigationList(): PageNavigation[] {
+    return this.MoviePageNavigationList;
+  }
+
 
 }
