@@ -88,4 +88,8 @@ export class MovieService {
     .pipe(takeUntilDestroyed(this._destroyRef))
     .subscribe();
   }
+
+  commentSeenMovie(movieId: number, commentAndSeen: object): Observable<MovieShortDTO> {
+    return this._http.patch<MovieShortDTO>(this._BASE_URL + `/update/${movieId}`, commentAndSeen)
+  }
 }
