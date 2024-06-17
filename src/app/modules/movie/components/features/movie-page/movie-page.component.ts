@@ -1,9 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../../../shared/services/movie/movie.service';
 import { MovieDTO } from '../../../../shared/models/types/movie-DTO.type';
 import { Location } from '@angular/common';
 import { Comment } from '../../../../shared/models/types/comment.type';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-movie-page',
@@ -15,20 +16,21 @@ export class MoviePageComponent implements OnInit {
   private _movieService = inject(MovieService);
   private _router = inject(Router);
   private _location = inject(Location);
+  private _destroyRef: DestroyRef = inject(DestroyRef);
   private _id!: number;
   public movie!: MovieDTO;
   public isCommentAreaVisible: boolean = false;
 
   personalComment: Comment = {
-    isSeen: false,
-    comment:""
-
-  }
+    isSeen: true,
+    comment: '',
+  };
 
   ngOnInit(): void {
     this._id = Number(this._route.snapshot.paramMap.get('id'));
     this._movieService
       .getMovieById(this._id)
+      .pipe(takeUntilDestroyed(this._destroyRef))
       .subscribe((movie: MovieDTO) => (this.movie = movie));
   }
 
@@ -41,12 +43,8 @@ export class MoviePageComponent implements OnInit {
   }
 
   sendComment(): void {
-    const commentAndSeen: object = {
-      isSeen: true,
-      comment: "bravo à toute l'équipe",
-    };
     this._movieService
-      .commentSeenMovie(this._id, commentAndSeen)
+      .commentSeenMovie(this._id, this.personalComment)
       .subscribe((response) => this._location.back());
   }
 }
