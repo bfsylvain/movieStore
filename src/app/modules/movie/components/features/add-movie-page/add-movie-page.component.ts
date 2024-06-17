@@ -16,7 +16,7 @@ export class AddMoviePageComponent {
   movie: MovieCreationDTO = {
     name: "",
     poster: '/assets/images/movie-poster/empty_portrait.webp',
-    originalName: 'azer',
+    originalName: "",
     releaseYear: 0,
     length: 0,
     pitch: "",

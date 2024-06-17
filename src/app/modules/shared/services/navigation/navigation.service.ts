@@ -17,7 +17,7 @@ export class NavigationService {
 
   MoviePageNavigationList: PageNavigation[] = [
     { name: 'TOUS', url: 'all' },
-    { name: 'DEJA VUS', url: 'seen' },
+    { name: 'DÉJÀ VU', url: 'seen' },
     { name: 'A VOIR', url: 'to-watch' },
     { name: 'AJOUTER', url: 'add-movie' },
 

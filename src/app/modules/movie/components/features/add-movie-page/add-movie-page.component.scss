@@ -8,4 +8,61 @@
     color: #fff;
     font-family: alice;
     font-size: large;
+
+    label, textarea {
+      display: block;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        width: 125px;
+        margin: 20px 0 0;
+        padding: 0.5rem 1.5rem;
+        border: solid #c29b0f 1px;
+        color: #fff;
+        border-radius: 7px;
+        background-color: #0b202f;
+        &:hover {
+          color: #0b202f;
+          background-color: #c29b0f;
+        }
+      }
+      button:nth-child(2) {
+        border: solid red 1px;
+        color: red;
+        &:hover {
+          background-color: red;
+          color: antiquewhite;
+        }
+      }
+    }
+      
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: none;
+      padding-top: 20px;
+
+      label, input, textarea {
+        width: 75%;
+      }
+      label {
+        text-align: center;
+      }
+      input, textarea {
+        padding: 0.4rem;
+        border: #c29b0f solid 1px;
+        background-color: #0b202f;
+        color: #fff;
+        border-radius: 3px;
+      }
+
+      textarea {
+        resize: none;
+      }
+    }
   }

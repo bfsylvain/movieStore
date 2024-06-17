@@ -28,8 +28,10 @@
   </fieldset>
   <fieldset>
     <label for="pitch">Synopsis</label>
-    <input id="pitch" name="pitch" type="text" [(ngModel)]="movie.pitch" />
+    <textarea id="pitch" name="pitch" type="text" [(ngModel)]="movie.pitch" rows="6" ></textarea>
   </fieldset>
-  <button type="reset">Restaurer</button>
-  <button type="submit">Sauvegarder</button>
+  <div class="button-container">
+    <button type="submit">Sauvegarder</button>
+    <button type="reset">Restaurer</button>
+  </div>
 </form>

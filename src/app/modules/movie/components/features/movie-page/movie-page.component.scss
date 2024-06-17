@@ -3,13 +3,68 @@
     flex-direction: column;
     min-height: 100vh;
     width: 100vw;
-    padding: 1rem 0% 1rem 0%;
+    padding: 3rem 5%;
     background-color: #0b202f;
     color: #fff;
     font-family: alice;
     font-size: large;
 
+    h2 {
+      margin-bottom: 1rem;
+    }
+    p {
+      line-height: 1.5;
+    }
     label, textarea {
       display: block;
+    }
+    
+    button {
+      margin: 20px 0;
+      padding: 0.5rem 1.5rem;
+      border: solid #c29b0f 1px;
+      color: #fff;
+      border-radius: 7px;
+      background-color: #0b202f;
+      &:hover {
+        color: #0b202f;
+        background-color: #c29b0f;
+      }
+    }
+
+    .header {
+      display: flex;
+
+      .image-container {
+        width: 191px;
+        height: 264px;
+        margin-right: 1.5rem;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-shrink: 0.5;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .movie-comment-container {
+      margin-top: 2rem;
+    }
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      border: none;
+      padding-top: 20px;
+
+      textarea {
+        resize: none;
+      }
+    }
+    .submit-btn {
+      margin-top: 5px;
     }
   }

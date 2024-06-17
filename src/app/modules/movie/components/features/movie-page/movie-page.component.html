@@ -1,46 +1,50 @@
 <ng-container *ngIf="movie">
   <article>
     <div class="header">
-      <img [src]="movie.poster" [alt]="movie.name" />
+      <div class="image-container">
+        <img [src]="movie.poster" [alt]="movie.name" />
+      </div>
       <div class="movie-infos">
         <h1>{{ movie.name }}</h1>
-        <p>{{ movie.originalName }}</p>
-        <p>{{ movie.releaseYear }}</p>
-        <p (click)="goToDirectorPage(movie.director.id)">
-          {{ movie.director.firstname }} {{ movie.director.lastname }}
+        <p>Titre original : {{ movie.originalName }}</p>
+        <p>Année de sortie : {{ movie.releaseYear }}</p>
+        <p class="director-link" (click)="goToDirectorPage(movie.director.id)">
+          Réalisé par : {{ movie.director.firstname }} {{ movie.director.lastname }}
         </p>
-        <p></p>
-        <p>{{ movie.length }}</p>
+        <p>Durée : {{ movie.length }}</p>
       </div>
-      <div class="pitch">
-        <h2>Synopsis</h2>
-        @if(movie.pitch) {
-        <p class="description">{{ movie.pitch }}</p>
-        } @else {
-        <p>Aucune description</p>
-        }
-      </div>
-      @if(movie.comment){
-      <p>{{ movie.comment }}</p>
-      } @else { @if (isCommentAreaVisible) {
-      <form (ngSubmit)="sendComment()">
-        <fieldset>
-          <label for="comment">Commentaire</label>
-          <textarea
-            type="comment-text"
-            id="comment"
-            name="comment"
-            rows="5"
-            cols="33"
-            placeholder="Mon commentaire"
-            [(ngModel)]="comment"
-          ></textarea>
-          <button type="submit">Envoyer</button>
-        </fieldset>
-      </form>
-      }
-      <button type="button" (click)="showCommentArea()">Écrire un avis</button>
+    </div>
+    <div class="pitch">
+      <h2>Synopsis</h2>
+      @if(movie.pitch) {
+      <p class="description">{{ movie.pitch }}</p>
+      } @else {
+      <p>Aucune description</p>
       }
     </div>
+    @if(movie.comment){
+      <div class="movie-comment-container">
+        <h2>Avis sur le film</h2>
+        <p>{{ movie.comment }}</p>
+      </div>
+    } @else { @if (isCommentAreaVisible) {
+    <form (ngSubmit)="sendComment()">
+      <fieldset>
+        <label for="comment">Commentaire</label>
+        <textarea
+          type="comment-text"
+          id="comment"
+          name="comment"
+          rows="5"
+          cols="33"
+          placeholder="Mon commentaire"
+          [(ngModel)]="personalComment.comment"
+        ></textarea>
+      </fieldset>
+        <button class="submit-btn" type="submit">Envoyer</button>
+    </form>
+    }
+    <button type="button" (click)="showCommentArea()">Écrire un avis</button>
+    }
   </article>
 </ng-container>

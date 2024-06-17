@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../../../shared/services/movie/movie.service';
 import { MovieDTO } from '../../../../shared/models/types/movie-DTO.type';
 import { Location } from '@angular/common';
+import { Comment } from '../../../../shared/models/types/comment.type';
 
 @Component({
   selector: 'app-movie-page',
@@ -16,8 +17,13 @@ export class MoviePageComponent implements OnInit {
   private _location = inject(Location);
   private _id!: number;
   public movie!: MovieDTO;
-  public comment: string = '';
   public isCommentAreaVisible: boolean = false;
+
+  personalComment: Comment = {
+    isSeen: false,
+    comment:""
+
+  }
 
   ngOnInit(): void {
     this._id = Number(this._route.snapshot.paramMap.get('id'));
