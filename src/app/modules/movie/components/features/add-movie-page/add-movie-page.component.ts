@@ -14,12 +14,12 @@ export class AddMoviePageComponent {
   private _location = inject(Location);
 
   movie: MovieCreationDTO = {
-    name: 'rubber',
+    name: "",
     poster: '/assets/images/movie-poster/empty_portrait.webp',
     originalName: 'azer',
-    releaseYear: 2012,
-    length: 65,
-    pitch: 'pneu tueur desert',
+    releaseYear: 0,
+    length: 0,
+    pitch: "",
     isSeen: false,
   };
   sendMovie(): void {
