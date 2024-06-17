@@ -1,35 +1,48 @@
 <ng-container *ngIf="movie">
-    <article>
-        <div class="header">
-            <img [src]="movie.poster" alt="">
-            <div class="movie-infos">
-                <h1>{{movie.name}}</h1>
-                <p>{{movie.originalName}}</p>
-                <p>{{movie.releaseYear}}</p>
-                <p (click)="goToDirectorPage(movie.director.id)">{{movie.director.firstname}} {{movie.director.lastname}}</p>
-                <p></p>
-                <p>{{movie.length}}</p>
-            </div>
-            <div class="pitch">
-                <h2>Synopsis</h2>
-                @if(movie.pitch) {
-                    <p class="description">{{movie.pitch}}</p>
-                } @else {
-                    <p>Aucune description</p>
-                }
-            </div>
-            @if(movie.comment){
-                <p>{{movie.comment}}</p>
-            } @else {
-                @if (isCommentAreaVisible) {
-                    <section class="comment">
-                        <label for="comment">Commentaire</label>
-                        <textarea type="comment-text" id="comment" name="comment" rows="5" cols="33" placeholder="Mon commentaire"></textarea>
-                        <button type="button" appBackToPreviousPage (click)="sendComment()">Envoyer</button>
-                    </section>
-                }
-                <button type="button" (click)="showCommentArea()">Écrire un avis</button>
-            }
-        </div>
-    </article>
+  <article>
+    <div class="header">
+      <img [src]="movie.poster" [alt]="movie.name" />
+      <div class="movie-infos">
+        <h1>{{ movie.name }}</h1>
+        <p>{{ movie.originalName }}</p>
+        <p>{{ movie.releaseYear }}</p>
+        <p (click)="goToDirectorPage(movie.director.id)">
+          {{ movie.director.firstname }} {{ movie.director.lastname }}
+        </p>
+        <p></p>
+        <p>{{ movie.length }}</p>
+      </div>
+      <div class="pitch">
+        <h2>Synopsis</h2>
+        @if(movie.pitch) {
+        <p class="description">{{ movie.pitch }}</p>
+        } @else {
+        <p>Aucune description</p>
+        }
+      </div>
+      @if(movie.comment){
+      <p>{{ movie.comment }}</p>
+      } @else { @if (isCommentAreaVisible) {
+        <form (ngSubmit)="sendComment()">
+            <fieldset>
+                <label for="comment">Commentaire</label>
+                <textarea
+                type="comment-text"
+                id="comment"
+                name="comment"
+                rows="5"
+                cols="33"
+                placeholder="Mon commentaire"
+                [(ngModel)]="comment"        
+                ></textarea>
+                <button type="submit">
+                    Envoyer
+                </button>
+            </fieldset>
+        </form>
+        }
+      <button type="button" (click)="showCommentArea()">Écrire un avis</button>
+      }
+    </div>
+  </article>
 </ng-container>
