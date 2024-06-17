@@ -1,7 +1,2 @@
-<p>movie-home-page works!</p>
-<button type="button">ALL</button>
-<button type="button">TO SEE</button>
-<button type="button">ALREADY SEEN</button>
-<button type="button">ADD MOVIE</button>
-
+<button type="button" *ngFor="let page of pagesToNavigate" [routerLink]="page.url">{{page.name}}</button>
 <router-outlet></router-outlet>
