@@ -3,6 +3,7 @@ import { DirectorBasicDTO } from "./director-basic-DTO.type"
 export type MovieDTO = {
     id: number,
     name: string,
+    poster: string,
     originalName: string,
     releaseYear: number,
     length: number,
