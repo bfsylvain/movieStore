@@ -1,0 +1,39 @@
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px;
+    height: 90px;
+    width: 100vw;
+    background-color: #0b202f;
+    z-index: 100;
+  
+    &::after {
+      content: "";
+      width: 90%;
+      height: 0.5px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .menu-btn {
+      position: absolute;
+      left: 2vw
+    }
+    .app-title {
+      color: #fff;
+      font-family: cinzel;
+      font-weight: 100;
+      font-size: 2em;
+  
+      &.full {
+        width: 100%;
+        text-align: center;
+      }
+    }
+}
