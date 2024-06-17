@@ -18,11 +18,18 @@
                     <p>Aucune description</p>
                 }
             </div>
-            <section class="comment">
-                <label for="comment">Commentaire</label>
-                <textarea type="comment-text" id="comment" name="comment" rows="5" cols="33" placeholder="Mon commentaire"></textarea>
-                <button type="button">Envoyer</button>
-            </section>
+            @if(movie.comment){
+                <p>{{movie.comment}}</p>
+            } @else {
+                @if (isCommentAreaVisible) {
+                    <section class="comment">
+                        <label for="comment">Commentaire</label>
+                        <textarea type="comment-text" id="comment" name="comment" rows="5" cols="33" placeholder="Mon commentaire"></textarea>
+                        <button type="button" appBackToPreviousPage (click)="sendComment()">Envoyer</button>
+                    </section>
+                }
+                <button type="button" (click)="showCommentArea()">Écrire un avis</button>
+            }
         </div>
     </article>
 </ng-container>

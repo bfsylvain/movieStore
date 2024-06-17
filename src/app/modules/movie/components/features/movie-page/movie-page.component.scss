@@ -8,4 +8,11 @@
     color: #fff;
     font-family: alice;
     font-size: large;
+
+    label {
+      display: block;
+    }
+    textarea {
+      display: block;
+    }
   }
