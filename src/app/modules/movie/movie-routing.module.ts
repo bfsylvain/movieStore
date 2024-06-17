@@ -18,6 +18,11 @@ const routes: Routes = [
     component: MovieHomePageComponent,
     children: [
       {
+        path: "",
+        redirectTo: "all",
+        pathMatch: "full"
+      },
+      {
         path:"all",
         component: MovieListComponent
       },
