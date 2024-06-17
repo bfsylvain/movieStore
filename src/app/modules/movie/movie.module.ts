@@ -7,6 +7,7 @@ import { AddMoviePageComponent } from './components/features/add-movie-page/add-
 import { MovieHomePageComponent } from './components/movie-home-page/movie-home-page.component';
 import { SeenMoviesComponent } from './components/features/seen-movies/seen-movies.component';
 import { MoviesToWatchComponent } from './components/features/movies-to-watch/movies-to-watch.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MoviesToWatchComponent } from './components/features/movies-to-watch/mo
   ],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    SharedModule
   ]
 })
 export class MovieModule { }
