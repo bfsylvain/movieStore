@@ -1,0 +1,43 @@
+:host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button {
+    width: 45vw;
+    font-family: alice;
+    font-size: 1.2rem;
+    padding: 1rem 0.2rem;
+    border: 1px solid #c29b0f;
+    transition: 200ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+  
+    &.lblue-gold {
+      background-color: #30495b;
+      color: #fff;
+    }
+    &.dblue-gold {
+      background-color: #0b202f;
+      color: #fff;
+    }
+    &.gold {
+      background-color: #c29b0f;
+      color: #0b202f;
+    }
+    &.red {
+      background-color: #0b202f;
+      color: #ff0000;
+      border: 0.5px solid #ff0000;
+    }
+    &.red-white {
+      background-color: transparent;
+      color: #ff0000;
+      border: 0.5px solid #ff0000;
+    }
+  }
+
+  
