@@ -1,1 +1,20 @@
-<p>director-page works!</p>
+<ng-container *ngIf="director">
+    <article>
+      <div class="header">
+        <div class="image-container">
+          <img [src]="director.photo" [alt]="director.lastname" />
+        </div>
+        <div class="movie-infos">
+          <h1>{{ director.firstname }} {{ director.lastname }}</h1>
+          <p>PAys d'origine : {{ director.country }}</p>
+          <p>Date de naissance : {{director.birthday| date}}</p>
+        </div>
+      </div>
+      <div class="pitch">
+        <h2>Biographie</h2>
+        @if(director.biography) {
+        <p class="description">{{ director.biography }}</p>
+        } @else {
+        <p>Aucune information</p>
+        }
+      </div>

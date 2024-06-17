@@ -1,1 +1,11 @@
-<p>director-list works!</p>
+<ng-container *ngIf="directorList$ | async as directorList">
+    <article *ngFor="let director of directorList" (click)="goToDirectorPage(director.id)">
+      <div class="image-container">
+        <img [src]="director.photo" alt="poster" />
+      </div>
+      <div class="title-container">
+        <p>{{director.firstname}} {{director.lastname}}</p>
+      </div>
+      <button type="button" (click)="deleteMovie(director.id)">Supprimer</button>
+    </article>
+  </ng-container>

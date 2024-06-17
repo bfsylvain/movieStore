@@ -1,9 +1,10 @@
-import { MovieShortDTO } from "./Movie-short-DTO.type"
+import { MovieShortDTO } from "./movie-short-DTO.type"
 
 export type DirectorDTO = {
     id: number,
     firstname: string,
     lastname: string,
+    photo: string
     birthday: Date,
     country: string,
     biography: string,
