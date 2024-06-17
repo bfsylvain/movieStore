@@ -41,7 +41,7 @@ export class MovieService {
   // }
 
   getWatchedMovies(): void {
-    const watchedMovies = this.allMovieList.filter(movie => movie.isSeen === true)
+    const watchedMovies = this.allMovieList.filter(movie => movie.isSeen)
     this.movies$.next(watchedMovies)
   }
   // getWatchedMovies$(): Observable<MovieShortDTO[]> {
@@ -51,7 +51,7 @@ export class MovieService {
   // }
 
   getnotWatchedMovies(): void {
-    const watchedMovies = this.allMovieList.filter(movie => movie.isSeen ===false)
+    const watchedMovies = this.allMovieList.filter(movie => !movie.isSeen)
     this.movies$.next(watchedMovies)
 
   }
