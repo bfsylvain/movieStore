@@ -9,5 +9,6 @@ export type MovieDTO = {
     length: number,
     pitch: string,
     isSeen: boolean,
-    director: DirectorBasicDTO
+    director: DirectorBasicDTO,
+    comment: string
 }
