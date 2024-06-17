@@ -23,24 +23,22 @@
       @if(movie.comment){
       <p>{{ movie.comment }}</p>
       } @else { @if (isCommentAreaVisible) {
-        <form (ngSubmit)="sendComment()">
-            <fieldset>
-                <label for="comment">Commentaire</label>
-                <textarea
-                type="comment-text"
-                id="comment"
-                name="comment"
-                rows="5"
-                cols="33"
-                placeholder="Mon commentaire"
-                [(ngModel)]="comment"        
-                ></textarea>
-                <button type="submit">
-                    Envoyer
-                </button>
-            </fieldset>
-        </form>
-        }
+      <form (ngSubmit)="sendComment()">
+        <fieldset>
+          <label for="comment">Commentaire</label>
+          <textarea
+            type="comment-text"
+            id="comment"
+            name="comment"
+            rows="5"
+            cols="33"
+            placeholder="Mon commentaire"
+            [(ngModel)]="comment"
+          ></textarea>
+          <button type="submit">Envoyer</button>
+        </fieldset>
+      </form>
+      }
       <button type="button" (click)="showCommentArea()">Écrire un avis</button>
       }
     </div>

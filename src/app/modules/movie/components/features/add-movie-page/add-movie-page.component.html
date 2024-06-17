@@ -1,1 +1,35 @@
-<p>WWWWWWWWOOOOWWW add-movie-page works!</p>
+<form (ngSubmit)="sendMovie()">
+  <fieldset>
+    <label for="name">Titre</label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      [(ngModel)]="movie.name"
+      required
+    />
+  </fieldset>
+  <fieldset>
+    <label for="originalName">Titre original</label>
+    <input id="originalName" name="originalName" type="text" [(ngModel)]="movie.originalName" />
+  </fieldset>
+  <fieldset>
+    <label for="releaseYear">Année de sortie</label>
+    <input id="releaseYear" name="releaseYear" type="number" [(ngModel)]="movie.releaseYear" />
+  </fieldset>
+  <fieldset>
+    <label for="length">Durée</label>
+    <input
+      id="length"
+      name="length"
+      type="number"
+      [(ngModel)]="movie.length"
+    />
+  </fieldset>
+  <fieldset>
+    <label for="pitch">Synopsis</label>
+    <input id="pitch" name="pitch" type="text" [(ngModel)]="movie.pitch" />
+  </fieldset>
+  <button type="reset">Restaurer</button>
+  <button type="submit">Sauvegarder</button>
+</form>

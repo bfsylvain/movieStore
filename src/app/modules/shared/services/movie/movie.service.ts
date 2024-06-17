@@ -5,13 +5,14 @@ import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
 import { MovieShortDTO } from '../../models/types/movie-short-DTO.type';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MovieDTO } from '../../models/types/movie-DTO.type';
+import { MovieCreationDTO } from '../../models/types/movie-creation-DTO.type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
   private _http = inject(HttpClient);
-  private _destroyRef: DestroyRef = inject(DestroyRef)
+  private _destroyRef: DestroyRef = inject(DestroyRef);
   private readonly _BASE_URL = environment.baseUrl + '/movies';
 
   private allMovieList: MovieShortDTO[] = [];
@@ -62,7 +63,7 @@ export class MovieService {
   }
 
   getMovieById(movieId: number): Observable<MovieDTO> {
-    return this._http.get<MovieDTO>(this._BASE_URL + `/get/${movieId}`)
+    return this._http.get<MovieDTO>(this._BASE_URL + `/get/${movieId}`);
   }
 
   getNotSeenMovieList$(): Observable<MovieShortDTO[]> {
@@ -84,12 +85,23 @@ export class MovieService {
       (movie) => movie.id !== id
     );
     this.notSeenMovies$.next(this.notSeenMovieList);
-    this._http.delete(this._BASE_URL + `/delete/${id}`)
-    .pipe(takeUntilDestroyed(this._destroyRef))
-    .subscribe();
+    this._http
+      .delete(this._BASE_URL + `/delete/${id}`)
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe();
   }
 
-  commentSeenMovie(movieId: number, commentAndSeen: object): Observable<MovieShortDTO> {
-    return this._http.patch<MovieShortDTO>(this._BASE_URL + `/update/${movieId}`, commentAndSeen)
+  commentSeenMovie(
+    movieId: number,
+    commentAndSeen: object
+  ): Observable<MovieShortDTO> {
+    return this._http.patch<MovieShortDTO>(
+      this._BASE_URL + `/update/${movieId}`,
+      commentAndSeen
+    );
+  }
+
+  addMovie(movie: MovieCreationDTO): Observable<MovieShortDTO> {
+    return this._http.post<MovieShortDTO>(this._BASE_URL + '/add', movie);
   }
 }

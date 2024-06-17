@@ -39,8 +39,8 @@ export class MoviePageComponent implements OnInit {
       isSeen: true,
       comment: "bravo à toute l'équipe",
     };
-    this._movieService.commentSeenMovie(this._id, commentAndSeen).subscribe();
-    this._location.back()
-
+    this._movieService
+      .commentSeenMovie(this._id, commentAndSeen)
+      .subscribe((response) => this._location.back());
   }
 }
