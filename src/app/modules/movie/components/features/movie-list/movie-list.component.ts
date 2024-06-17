@@ -19,28 +19,16 @@ export class MovieListComponent {
   movieList$: Observable<MovieShortDTO[]> = this._movieService.getMovieList$()
 
   ngOnInit(): void {
-    // this.movieService.getAllMovies$().subscribe()
-    this._movieService.fetchMovies$()
+    this._movieService.getAllMovies$()
     .pipe(takeUntilDestroyed(this._destroyRef))
     .subscribe()
   }
 
-  DisplayAllMovies(): void {
-    this._movieService.getAllMovies()
-    // this.movieService.getAllMovies$().subscribe()
+  goToMoviePage(movieId: number): void {
+    this._router.navigate([`movies/home/movie/${movieId}`])
   }
 
-  DisplayWatchedMovies(): void {
-    this._movieService.getWatchedMovies()
-    // this.movieService.getWatchedMovies$().subscribe()
-  }
-
-  DisplayNotWatchedMovies(): void {
-    this._movieService.getnotWatchedMovies()
-    // this.movieService.getNotWatchedMovies$().subscribe()
-  }
-
-  redirect(): void {
-    this._router.navigateByUrl("movies/add-movie")
+  deleteMovie(id: number) {
+    this._movieService.deleteMovie(id)
   }
 }
