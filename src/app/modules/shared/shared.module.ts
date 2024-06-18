@@ -5,6 +5,8 @@ import { DirectorCardComponent } from './components/director-card/director-card.
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 import { BackToPreviousPageDirective } from './directives/back-to-previous-page.directive';
 import { FormsModule } from '@angular/forms';
+import { LengthFormatPipe } from './pipes/length-format.pipe';
+import { ReturnButtonComponent } from './components/return-button/return-button.component';
 
 
 
@@ -13,7 +15,9 @@ import { FormsModule } from '@angular/forms';
     MovieCardComponent,
     DirectorCardComponent,
     CustomButtonComponent,
-    BackToPreviousPageDirective
+    BackToPreviousPageDirective,
+    LengthFormatPipe,
+    ReturnButtonComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { FormsModule } from '@angular/forms';
   exports: [
     CustomButtonComponent,
     FormsModule,
-    BackToPreviousPageDirective
+    BackToPreviousPageDirective,
+    LengthFormatPipe,
+    ReturnButtonComponent
   ]
 })
 export class SharedModule { }

@@ -1,5 +1,6 @@
 <ng-container *ngIf="director">
-    <article>
+  <article>
+    <app-return-button></app-return-button>
       <div class="header">
         <div class="image-container">
           <img [src]="director.photo" [alt]="director.lastname" />
@@ -7,7 +8,7 @@
         <div class="movie-infos">
           <h1>{{ director.firstname }} {{ director.lastname }}</h1>
           <p>PAys d'origine : {{ director.country }}</p>
-          <p>Date de naissance : {{director.birthday| date}}</p>
+          <p>Date de naissance : {{director.birthday| date:"longDate"}}</p>
         </div>
       </div>
       <div class="pitch">

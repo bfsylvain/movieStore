@@ -10,11 +10,15 @@ import { Router } from '@angular/router';
 })
 export class MovieHomePageComponent {
 
+  public selectedName: string = ""
   private _navService= inject(NavigationService);
   private _router= inject(Router)
 
   pagesToNavigate: PageNavigation[] = this._navService.setMoviePageNavigationList()
 
+  select(name: string): void {
+    this.selectedName = name
+  }
 
   navigateTo(url: string): void {
     this._router.navigateByUrl(url)

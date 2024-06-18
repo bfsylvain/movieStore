@@ -1,2 +1,12 @@
-<button type="button" *ngFor="let page of pagesToNavigate" [routerLink]="page.url">{{page.name}}</button>
+<div class="button-container">
+    <button
+    type="button"
+    *ngFor="let page of pagesToNavigate"
+    [routerLink]="page.url"
+    (click)="select(page.name)"
+    [ngClass]="{ selected: page.name === selectedName }"
+    >
+    {{ page.name }}
+</button>
+</div>
 <router-outlet></router-outlet>

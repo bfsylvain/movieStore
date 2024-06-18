@@ -4,11 +4,15 @@ import { DirectorService } from '../../../../shared/services/director/director.s
 import { Location } from '@angular/common';
 import { DirectorDTO } from '../../../../shared/models/types/director-DTO.type';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { registerLocaleData } from '@angular/common';
+import localFr from '@angular/common/locales/fr';
+
+registerLocaleData(localFr);
 
 @Component({
   selector: 'app-director-page',
   templateUrl: './director-page.component.html',
-  styleUrl: './director-page.component.scss'
+  styleUrls: ['./director-page.component.scss']
 })
 export class DirectorPageComponent {
 

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DirectorRoutingModule } from './director-routing.module';
 import { DirectorListComponent } from './components/features/director-list/director-list.component';
 import { DirectorPageComponent } from './components/features/director-page/director-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { DirectorPageComponent } from './components/features/director-page/direc
   ],
   imports: [
     CommonModule,
-    DirectorRoutingModule
+    DirectorRoutingModule,
+    SharedModule
   ]
 })
 export class DirectorModule { }

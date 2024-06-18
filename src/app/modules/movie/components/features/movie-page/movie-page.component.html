@@ -1,18 +1,33 @@
 <ng-container *ngIf="movie">
   <article>
+    <app-return-button></app-return-button>
     <div class="header">
       <div class="image-container">
         <img [src]="movie.poster" [alt]="movie.name" />
       </div>
       <div class="movie-infos">
         <h1>{{ movie.name }}</h1>
-        <p>Titre original : {{ movie.originalName }}</p>
-        <p>Année de sortie : {{ movie.releaseYear }}</p>
+        <p>Titre original : @if(!movie.originalName.length){
+          <span>Inconnu</span>
+        } @else {
+          <span>{{ movie.originalName }}</span>
+        }</p>
+        <p>Année de sortie : @if(movie.releaseYear === 0){
+          <span>Inconu</span>
+        } @else {
+            <span>{{ movie.releaseYear }}</span>
+          }</p>
+        @if(movie.director === null){
+        <p class="director-link">Réalisé par : Inconnu</p>
+        } @else {
         <p class="director-link" (click)="goToDirectorPage(movie.director.id)">
-          Réalisé par : <span>{{ movie.director.firstname }}
-            {{ movie.director.lastname }}</span>
+          Réalisé par :
+          <span
+            >{{ movie.director.firstname }} {{ movie.director.lastname }}</span
+          >
         </p>
-        <p>Durée : {{ movie.length }}</p>
+        }
+        <p>Durée : {{ movie.length | lengthFormat }}</p>
       </div>
     </div>
     <div class="pitch">

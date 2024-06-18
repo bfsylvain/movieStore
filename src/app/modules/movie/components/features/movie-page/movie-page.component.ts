@@ -31,7 +31,7 @@ export class MoviePageComponent implements OnInit {
     this._movieService
       .getMovieById(this._id)
       .pipe(takeUntilDestroyed(this._destroyRef))
-      .subscribe((movie: MovieDTO) => (this.movie = movie));
+      .subscribe((movie: MovieDTO) => {(this.movie = movie), console.log(movie)});
   }
 
   goToDirectorPage(directorId: number) {
